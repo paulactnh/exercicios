@@ -1,10 +1,15 @@
 const ContaPoupanca = require('../models/ByteBank')
-const contaPoupanca = new ContaPoupanca(5)
+const contaPoupanca = new ContaPoupanca()
 
 describe('teste unitário da conta poupança', ()=>{
     test('juros', ()=>{
-        const saldo_final = contaPoupanca.aplicarJuros()
+        const saldo = contaPoupanca.aplicarJuros()
         saldo_vdd = 502.5
-        expect(saldo_final).toBeCloseTo(saldo_vdd,2)
+        expect(saldo).toBeCloseTo(saldo_vdd,2)
+    })
+    test('rendimento', ()=>{
+        const montante = contaPoupanca.preverRendimento(6)
+        montante_vdd = 517.57
+        expect(montante).toBeCloseTo(montante_vdd,2)
     })
 })
